@@ -3,127 +3,174 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Future Feed · FUTURES</title>
-  <meta name="description" content="Posts from the futures we want: a shared class feed for ED82.13 Activity 2.3.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comic+Neue:wght@700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <title>Futures Fakebook</title>
+  <meta name="description" content="Futures Fakebook: posts from the futures we want. A class activity for ED82.13, Module 2, Activity 2.3.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23F6C343' stroke='%231B1B1B' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231877F2'/%3E%3Ctext x='32' y='46' font-family='Arial' font-weight='700' font-size='40' text-anchor='middle' fill='white'%3Efb%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-  <header class="masthead">
-    <div class="runhead"><span>FUTURES · THE FORESIGHT PLAYBOOK</span><span id="course"></span></div>
-    <div class="mast">
-      <div>
-        <span class="tag" id="activity">Module 2 · Activity 2.3</span>
-        <h1><span class="futures" data-text="FUTURES">FUTURES</span> <span class="feedword" id="title">Future Feed</span></h1>
-        <p class="lead">Posts from the futures we want. Imagine your adaptation challenge has been solved, then share what life looks like there.</p>
-      </div>
-      <div class="bubble" aria-hidden="true">WHAT IF WE GET IT RIGHT?</div>
-    </div>
-    <div class="banner" id="banner" hidden></div>
-  </header>
-
-  <main class="layout">
-    <!-- Composer -->
-    <section class="composer" id="composer" aria-labelledby="composer-title">
-      <button class="composer-toggle" id="composerToggle" aria-expanded="true" aria-controls="composerBody">
-        <span id="composer-title">Post from the future</span><span class="chev" aria-hidden="true">▾</span>
+  <header class="topbar">
+    <div class="tb-inner">
+      <a class="brand" href="./" aria-label="Futures Fakebook home">
+        <span class="brand-word">fakebook</span><span class="brand-tag">FUTURES</span>
+      </a>
+      <label class="tb-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Search Fakebook" aria-label="Search posts">
+      </label>
+      <button type="button" class="tb-btn" id="refresh" aria-label="Refresh feed" title="Refresh feed">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <form id="postForm" class="composer-body" novalidate>
-        <div id="composerBody">
-          <div class="row two">
-            <label>Your name or group<input name="name" maxlength="60" required placeholder="e.g. Rein, or Group 2"></label>
-            <label>Case area<input name="case" maxlength="80" required placeholder="e.g. Olango Island"></label>
-          </div>
+    </div>
+  </header>
+  <div class="banner" id="banner" hidden></div>
 
-          <fieldset class="step">
-            <legend><span class="num">1</span>Choose a future year</legend>
-            <div class="years" id="years"></div>
-            <p class="hint">Mid-century years like 2050 give slow climate changes room to show.</p>
-          </fieldset>
+  <div class="page">
+    <!-- Left: about the activity -->
+    <aside class="left" aria-label="About this activity">
+      <section class="card side">
+        <p class="eyebrow" id="activity">Module 2 · Activity 2.3</p>
+        <h2>Post from the future</h2>
+        <p>Imagine your adaptation challenge has been successfully addressed. Share what life looks like in that year.</p>
+        <ol class="mini-steps">
+          <li>Choose a future year</li>
+          <li>Write the headline</li>
+          <li>Add your image</li>
+          <li>Say what has changed</li>
+          <li>Add a voice from the future</li>
+          <li>Write the future story</li>
+        </ol>
+      </section>
+      <section class="card side hide-sm">
+        <h3>Keep your vision</h3>
+        <ul class="vision-list">
+          <li>Time-bound</li><li>Place-based</li><li>People-centred</li>
+          <li>Bold and aspirational</li><li>Tangible and visual</li><li>Open to many pathways</li>
+        </ul>
+      </section>
+      <p class="credit hide-sm" id="course">ED82.13 · Asian Institute of Technology</p>
+    </aside>
 
-          <fieldset class="step">
-            <legend><span class="num">2</span>Write the headline</legend>
-            <input aria-label="Headline" name="headline" maxlength="140" required placeholder="Creek road stays open through a record typhoon">
-            <div class="count" data-for="headline"></div>
-          </fieldset>
-
-          <fieldset class="step">
-            <legend><span class="num">3</span>Pick or add an image</legend>
-            <div class="scenes" id="scenes" role="radiogroup" aria-label="Choose a scene"></div>
-            <details class="own" id="ownImage">
-              <summary>Use my own image link instead</summary>
-              <label>Image link (https://…)<input name="imageUrl" inputmode="url" placeholder="Paste an image or Google Drive link"></label>
-              <p class="hint">Drew it on paper? Take a photo, upload it to Google Drive, set sharing to "Anyone with the link", then paste the link here.</p>
-            </details>
-          </fieldset>
-
-          <fieldset class="step">
-            <legend><span class="num">4</span>What has changed from today?</legend>
-            <ol class="changes" id="changes"></ol>
-            <p class="hint">At least 3, up to 5. Think about places, systems and people.</p>
-          </fieldset>
-
-          <fieldset class="step">
-            <legend><span class="num">5</span>Add a voice from the future</legend>
-            <textarea aria-label="Quote" name="quote" rows="2" maxlength="260" placeholder="“The morning after the storm, our kids still walked to school.”"></textarea>
-            <label>Who says it<input name="quoteBy" maxlength="80" placeholder="e.g. Lola Remy, sari-sari store owner"></label>
-          </fieldset>
-
-          <fieldset class="step">
-            <legend><span class="num">6</span>Write the future story</legend>
-            <textarea aria-label="Story" name="story" rows="4" maxlength="1000" placeholder="In 3 to 5 sentences, describe life in this future and why it is more climate-resilient."></textarea>
-            <div class="count" data-for="story"></div>
-          </fieldset>
-
-          <fieldset class="vision">
-            <legend>Keep your vision</legend>
-            <div class="checks">
-              <label><input type="checkbox"> Time-bound</label>
-              <label><input type="checkbox"> Place-based</label>
-              <label><input type="checkbox"> People-centred</label>
-              <label><input type="checkbox"> Bold and aspirational</label>
-              <label><input type="checkbox"> Tangible and visual</label>
-              <label><input type="checkbox"> Open to many pathways</label>
-            </div>
-          </fieldset>
-
-          <div class="preview-wrap">
-            <p class="micro">Preview</p>
-            <div id="preview"></div>
-          </div>
-
-          <div class="submit-row">
-            <label class="code" id="codeField">Class code<input name="code" autocomplete="off" placeholder="from your instructor"></label>
-            <button type="submit" class="btn" id="submitBtn">Post to the feed</button>
-          </div>
-          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
-          <p class="hint small">Posts are public on this page. Use a first name or group name only.</p>
+    <!-- Centre: composer and feed -->
+    <main class="center">
+      <section class="card composer-card" aria-label="Create a post">
+        <div class="cc-top">
+          <div class="avatar" id="meAvatar" aria-hidden="true">?</div>
+          <button type="button" class="fake-input" id="openComposer">What does your future look like?</button>
         </div>
-      </form>
-    </section>
-
-    <!-- Feed -->
-    <section class="feed" aria-labelledby="feed-title">
-      <div class="feed-head">
-        <h2 id="feed-title">The feed</h2>
-        <div class="tools">
-          <label class="search"><span class="sr">Search posts</span><input id="search" type="search" placeholder="Search case, name or headline"></label>
-          <div class="seg" role="group" aria-label="Sort posts">
-            <button type="button" data-sort="new" class="on">Newest</button>
-            <button type="button" data-sort="liked">Most liked</button>
-          </div>
-          <button type="button" class="icon-btn" id="refresh" title="Refresh feed" aria-label="Refresh feed">↻</button>
+        <div class="cc-actions">
+          <button type="button" data-open="step-image"><span class="ic ic-photo" aria-hidden="true"></span>Photo/drawing</button>
+          <button type="button" data-open="step-year"><span class="ic ic-year" aria-hidden="true"></span>Future year</button>
+          <button type="button" data-open="step-quote"><span class="ic ic-voice" aria-hidden="true"></span>Future voice</button>
         </div>
+      </section>
+
+      <div class="feed-bar">
+        <div class="tabs" role="group" aria-label="Sort posts">
+          <button type="button" data-sort="new" class="on">Newest</button>
+          <button type="button" data-sort="liked">Most liked</button>
+        </div>
+        <span class="feed-meta" id="feedMeta"></span>
       </div>
-      <p class="feed-meta" id="feedMeta"></p>
       <div id="posts" class="posts" aria-live="polite"></div>
-    </section>
-  </main>
+    </main>
 
-  <footer class="foot"><span>ED82.13 · ASIAN INSTITUTE OF TECHNOLOGY</span><span>FUTURES · MODULE 2</span></footer>
+    <!-- Right: feed info -->
+    <aside class="right" aria-label="Feed filters">
+      <section class="card side">
+        <h3>Years in the feed</h3>
+        <div class="year-chips" id="yearChips"><span class="muted">No posts yet</span></div>
+      </section>
+      <section class="card side">
+        <h3>How it works</h3>
+        <p class="muted small">Posts are saved for the whole class. Your instructor can hide or remove posts. Use a first name or group name only.</p>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Create post dialog -->
+  <dialog id="composerDialog" aria-labelledby="dlgTitle">
+    <form id="postForm" novalidate>
+      <div class="dlg-head">
+        <h2 id="dlgTitle">Create post</h2>
+        <button type="button" class="dlg-close" id="closeComposer" aria-label="Close">✕</button>
+      </div>
+      <div class="dlg-body">
+        <label>Name of poster<input name="name" maxlength="60" required placeholder="e.g., Rein, or Group 2"></label>
+        <div class="row two">
+          <label>Case area<input name="case" maxlength="80" required placeholder="e.g., Olango Island"></label>
+          <label>Date<input name="date" type="date" required></label>
+        </div>
+
+        <fieldset class="step" id="step-year">
+          <legend><span class="num">1</span>Choose a future year</legend>
+          <div class="years" id="years"></div>
+          <p class="hint">Mid-century years like 2050 give slow climate changes room to show.</p>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend><span class="num">2</span>Write the headline</legend>
+          <input aria-label="Headline" name="headline" maxlength="140" required placeholder="Creek road stays open through a record typhoon">
+          <div class="count" data-for="headline"></div>
+        </fieldset>
+
+        <fieldset class="step" id="step-image">
+          <legend><span class="num">3</span>Add your image</legend>
+          <label class="drop" id="drop">
+            <input type="file" id="imageFile" accept="image/*">
+            <span class="drop-icon" aria-hidden="true"></span>
+            <span><b>Add a photo or drawing</b><br><span class="muted small">Tap to choose, or drop an image here (JPG or PNG)</span></span>
+          </label>
+          <div class="chosen" id="chosen" hidden>
+            <img id="chosenImg" alt="Your chosen image">
+            <div><b id="chosenName"></b><br><button type="button" class="linkish" id="removeImage">Remove image</button></div>
+          </div>
+          <details class="own" id="ownImage">
+            <summary>Or paste an image link</summary>
+            <label>Image link (https://…)<input name="imageUrl" inputmode="url" placeholder="Paste an image or Google Drive link"></label>
+            <p class="hint">Google Drive links work if sharing is set to "Anyone with the link".</p>
+          </details>
+          <p class="hint">Drew it on paper? Take a clear photo and upload it.</p>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend><span class="num">4</span>What has changed from today?</legend>
+          <ol class="changes" id="changes"></ol>
+          <p class="hint">Changes 1 to 3 are required; 4 and 5 are optional. Think about places, systems and people.</p>
+        </fieldset>
+
+        <fieldset class="step" id="step-quote">
+          <legend><span class="num">5</span>Add a voice from the future</legend>
+          <textarea aria-label="Quote" name="quote" rows="2" maxlength="260" placeholder="“The morning after the storm, our kids still walked to school.”"></textarea>
+          <label>Name and role of the speaker<input name="quoteBy" maxlength="80" placeholder="e.g., Lola Remy, fisher"></label>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend><span class="num">6</span>Write the future story</legend>
+          <textarea aria-label="Story" name="story" rows="4" maxlength="1000" placeholder="In 3 to 5 sentences, describe life in this future and why it is more climate-resilient."></textarea>
+          <div class="count" data-for="story"></div>
+        </fieldset>
+
+        <fieldset class="vision">
+          <legend>Keep your vision</legend>
+          <div class="checks">
+            <label><input type="checkbox"> Time-bound</label>
+            <label><input type="checkbox"> Place-based</label>
+            <label><input type="checkbox"> People-centred</label>
+            <label><input type="checkbox"> Bold and aspirational</label>
+            <label><input type="checkbox"> Tangible and visual</label>
+            <label><input type="checkbox"> Open to many pathways</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="dlg-foot">
+        <label class="code" id="codeField">Class code<input name="code" autocomplete="off" placeholder="From your instructor"></label>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn-post" id="submitBtn">Post</button>
+      </div>
+    </form>
+  </dialog>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="config.js"></script>

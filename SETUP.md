@@ -1,4 +1,4 @@
-# Future Feed: setup guide
+# Futures Fakebook: setup guide
 
 About 15 minutes. You need one Google account and one GitHub account. Students need neither: they only open the link.
 
@@ -8,9 +8,9 @@ How it works: the website lives on GitHub Pages. Every post is saved as a row in
 
 ## Part A. Google Sheet and Apps Script (about 8 minutes)
 
-1. Go to sheets.google.com and create a blank spreadsheet. Name it **Future Feed 2050**.
+1. Go to sheets.google.com and create a blank spreadsheet. Name it **Future Feed 2050** (any name works).
 2. In the menu, click **Extensions > Apps Script**. A code editor opens in a new tab.
-   Click **Untitled project** at the top left and rename it **Future Feed**.
+   Click **Untitled project** at the top left and rename it **Futures Fakebook**.
 3. Delete everything in the editor. Open `apps-script/Code.gs` from this folder, copy all of it, and paste it in.
 4. Near the top, change the class code if you want:
    `const CLASS_CODE = 'FUTURES2050';`
@@ -18,11 +18,11 @@ How it works: the website lives on GitHub Pages. Every post is saved as a row in
 5. Click the **Save** icon (or Ctrl/Cmd + S).
 6. In the function dropdown next to **Run**, choose **setup**, then click **Run**.
    - Google asks for permission. Click **Review permissions**, choose your account.
-   - If you see "Google hasn't verified this app", click **Advanced**, then **Go to Future Feed (unsafe)**, then **Allow**. This is normal for your own scripts.
-   - Go back to the spreadsheet: a sheet called **Posts** now has a yellow header row.
+   - If you see "Google hasn't verified this app", click **Advanced**, then **Go to Futures Fakebook (unsafe)**, then **Allow**. This is normal for your own scripts. Google also asks to access your Drive: the script needs this to save the images students upload.
+   - Go back to the spreadsheet: a sheet called **Posts** now has a yellow header row, and your Google Drive has a new folder called **Futures Fakebook images**.
 7. Click **Deploy > New deployment**.
    - Click the gear next to "Select type" and choose **Web app**.
-   - Description: `Future Feed`
+   - Description: `Futures Fakebook`
    - Execute as: **Me**
    - Who has access: **Anyone**
    - Click **Deploy**, then **Authorize access** if asked.
@@ -40,7 +40,7 @@ How it works: the website lives on GitHub Pages. Every post is saved as a row in
    - Choose **Public**
    - Click **Create repository**.
 3. On the new repository page, click **uploading an existing file**.
-4. Drag in everything from this folder: `index.html`, `app.js`, `style.css`, `config.js`, `README.md` and the whole `assets` folder (you can also include `apps-script` and this guide). Click **Commit changes**.
+4. Drag in the files from this folder: `index.html`, `app.js`, `style.css`, `config.js` and `README.md` (you can also include `apps-script` and this guide). Click **Commit changes**.
 5. Click `config.js`, then the **pencil** icon to edit it. Paste your Web app URL between the quotes:
    `scriptUrl: "https://script.google.com/macros/s/AKfy…/exec",`
    Click **Commit changes**.
@@ -72,7 +72,7 @@ How it works: the website lives on GitHub Pages. Every post is saved as a row in
 
 ### Images
 
-Students either pick one of five drawn scenes (coastal barangay, island livelihoods, mountain village, city neighbourhood, farmland) or paste their own image link. For a drawing on paper: take a photo, upload it to Google Drive, set sharing to **Anyone with the link**, and paste the link. The site converts Drive links automatically.
+Students add their own image: they upload a photo or a photo of a drawing (the site shrinks it before sending), or paste an image link. Uploaded images are saved in the **Futures Fakebook images** folder in your Google Drive and shared as "Anyone with the link" so the feed can show them. To remove an image, delete the post's row and the file in that folder.
 
 ### Changing the class code or the script later
 
@@ -81,6 +81,10 @@ After editing `Code.gs`, click **Deploy > Manage deployments**, click the **penc
 ### Changing the header text or default year
 
 Edit `config.js` on GitHub (title, activity, course, defaultYear).
+
+### Updating to a new version of the site
+
+On GitHub, click **Add file > Upload files**, drag in the changed files, and click **Commit changes**. Files with the same name are replaced. The site updates within a minute or two.
 
 ---
 
@@ -92,5 +96,7 @@ Edit `config.js` on GitHub (title, activity, course, defaultYear).
 | "Could not load the feed" | Check the deployment's access is **Anyone** (not "Anyone with Google account"), then redeploy as a New version. |
 | "That class code is not right" | The code in `Code.gs` and what students type differ (capital letters don't matter). |
 | You changed `Code.gs` but nothing changed | Deploy a **New version** (see above). |
-| A student's image doesn't show | Their Drive file is not shared as "Anyone with the link", or the link is to a web page, not an image. |
+| A student's image doesn't show | For a pasted link: the Drive file is not shared as "Anyone with the link", or the link is to a web page, not an image. |
+| "Images could not be shared publicly from this Google account" | Your account blocks public Drive links (common on university accounts). Set up Part A with a personal Gmail. |
+| iPhone photo won't upload | Some browsers can't open HEIC photos. Share or export the photo as JPG first. |
 | Site link shows 404 | Wait 2 minutes after turning on Pages, and check that `index.html` is in the top level of the repository, not inside a folder. |
