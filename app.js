@@ -148,7 +148,7 @@
       state.year = Number(form.yearOther.value) || CFG.defaultYear;
     });
 
-    const ph = ["e.g., Mangrove belt replanted along the shore", "Required", "Required", "Optional", "Optional"];
+    const ph = ["Required", "Required", "Required", "Optional", "Optional"];
     $("#changes").innerHTML = ph.map((t, i) => `<li><input name="change" maxlength="160" aria-label="Change ${i + 1}${i < 3 ? " (required)" : " (optional)"}" placeholder="${t}"></li>`).join("");
     form.date.value = today();
 

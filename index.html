@@ -96,9 +96,9 @@
         <button type="button" class="dlg-close" id="closeComposer" aria-label="Close">✕</button>
       </div>
       <div class="dlg-body">
-        <label>Name of poster<input name="name" maxlength="60" required placeholder="e.g., Rein, or Group 2"></label>
+        <label>Name of poster<input name="name" maxlength="60" required></label>
         <div class="row two">
-          <label>Case area<input name="case" maxlength="80" required placeholder="e.g., Olango Island"></label>
+          <label>Case area<input name="case" maxlength="80" required></label>
           <label>Date<input name="date" type="date" required></label>
         </div>
 
@@ -110,7 +110,7 @@
 
         <fieldset class="step">
           <legend><span class="num">2</span>Write the headline</legend>
-          <input aria-label="Headline" name="headline" maxlength="140" required placeholder="Creek road stays open through a record typhoon">
+          <input aria-label="Headline" name="headline" maxlength="140" required>
           <div class="count" data-for="headline"></div>
         </fieldset>
 
@@ -142,7 +142,7 @@
         <fieldset class="step" id="step-quote">
           <legend><span class="num">5</span>Add a voice from the future</legend>
           <textarea aria-label="Quote" name="quote" rows="2" maxlength="260" placeholder="“The morning after the storm, our kids still walked to school.”"></textarea>
-          <label>Name and role of the speaker<input name="quoteBy" maxlength="80" placeholder="e.g., Lola Remy, fisher"></label>
+          <label>Name and role of the speaker<input name="quoteBy" maxlength="80"></label>
         </fieldset>
 
         <fieldset class="step">
@@ -164,7 +164,7 @@
         </fieldset>
       </div>
       <div class="dlg-foot">
-        <label class="code" id="codeField">Class code<input name="code" autocomplete="off" placeholder="From your instructor"></label>
+        <label class="code" id="codeField">Class code<input name="code" autocomplete="off"></label>
         <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
         <button type="submit" class="btn-post" id="submitBtn">Post</button>
       </div>
